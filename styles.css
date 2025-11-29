@@ -12,7 +12,7 @@
     /* Text Colors */
     --text-primary: #f0f0f0;
     --text-secondary: #c5c5c5;
-    --text-dim: #8a8a8a;
+    --text-dim: #a0a0a0;
 
     /* Syntax Highlighting */
     --color-keyword: #ff79c6;
@@ -35,6 +35,33 @@
 
     /* Content Width */
     --content-max-width: 800px;
+}
+
+/* Light Mode Theme */
+body.light-mode {
+    --bg-terminal: #f5f5f5;
+    --bg-window: #ffffff;
+    --bg-header: #e8e8e8;
+
+    --text-primary: #1a1a1a;
+    --text-secondary: #4a4a4a;
+    --text-dim: #6a6a6a;
+
+    --color-keyword: #d73a8a;
+    --color-string: #b08800;
+    --color-comment: #6a737d;
+    --color-function: #0366d6;
+    --color-operator: #d73a8a;
+    --color-number: #6f42c1;
+    --color-highlight: #22863a;
+    --color-link: #0366d6;
+
+    --control-red: #ff5f56;
+    --control-yellow: #ffbd2e;
+    --control-green: #27c93f;
+
+    --glow: 0 0 10px rgba(3, 102, 214, 0.3);
+    --shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
 }
 
 * {
@@ -143,6 +170,11 @@ body {
     color: var(--text-primary);
 }
 
+.tab:focus {
+    outline: 2px solid var(--color-highlight);
+    outline-offset: 2px;
+}
+
 .tab.active {
     background: var(--bg-window);
     color: var(--color-highlight);
@@ -206,6 +238,41 @@ body {
 /* ===========================
    Command Line
    =========================== */
+
+.intro-section {
+    margin: 2rem 0;
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.03);
+    border-left: 3px solid var(--color-function);
+    border-radius: 8px;
+}
+
+.intro-text {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+    line-height: 1.8;
+    font-style: italic;
+}
+
+.typing-text {
+    display: inline;
+}
+
+.typing-cursor {
+    display: inline-block;
+    color: var(--color-highlight);
+    animation: blink-cursor 0.7s infinite;
+    margin-left: 2px;
+}
+
+@keyframes blink-cursor {
+    0%, 50% {
+        opacity: 1;
+    }
+    51%, 100% {
+        opacity: 0;
+    }
+}
 
 .command-line {
     margin-bottom: 1.5rem;
@@ -316,11 +383,59 @@ body {
     box-shadow: 0 0 20px rgba(80, 250, 123, 0.4);
     object-fit: cover;
     transition: all 0.3s ease;
+    flex-shrink: 0;
 }
 
 .profile-pic:hover {
     transform: scale(1.05);
     box-shadow: 0 0 30px rgba(80, 250, 123, 0.6);
+}
+
+.profile-info {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.profile-title {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+    margin: 0;
+    font-weight: 500;
+}
+
+.social-links {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.social-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--color-link);
+    transition: all 0.3s ease;
+}
+
+.social-icon:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: var(--color-highlight);
+    transform: translateY(-3px) scale(1.1);
+    box-shadow: 0 4px 12px rgba(80, 250, 123, 0.3);
+}
+
+.social-icon:focus {
+    outline: 2px solid var(--color-highlight);
+    outline-offset: 2px;
 }
 
 /* ===========================
@@ -671,15 +786,6 @@ body {
     transform: scale(1.2);
 }
 
-.exp-list li strong {
-    color: var(--color-highlight);
-    font-weight: 700;
-    background: rgba(80, 250, 123, 0.1);
-    padding: 0.1rem 0.4rem;
-    border-radius: 4px;
-    border: 1px solid rgba(80, 250, 123, 0.3);
-}
-
 /* Education Box */
 .education-box {
     padding: 1.5rem;
@@ -747,6 +853,11 @@ body {
     color: var(--color-highlight);
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(139, 233, 253, 0.2);
+}
+
+.bottom-nav-btn:focus {
+    outline: 2px solid var(--color-highlight);
+    outline-offset: 2px;
 }
 
 /* ===========================
@@ -916,6 +1027,11 @@ kbd {
         gap: 1rem;
     }
 
+    .profile-info {
+        align-items: center;
+        text-align: center;
+    }
+
     .profile-pic {
         width: 100px;
         height: 100px;
@@ -1069,6 +1185,55 @@ kbd {
     transform: translateY(-2px);
 }
 
+.back-to-top:focus {
+    outline: 2px solid var(--color-highlight);
+    outline-offset: 4px;
+}
+
+/* ===========================
+   Theme Toggle Button
+   =========================== */
+
+.theme-toggle {
+    position: fixed;
+    top: 2rem;
+    right: 2rem;
+    width: 50px;
+    height: 50px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid var(--color-highlight);
+    border-radius: 50%;
+    color: var(--color-highlight);
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.theme-toggle:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: rotate(180deg) scale(1.1);
+    box-shadow: 0 8px 24px rgba(80, 250, 123, 0.4);
+}
+
+.theme-toggle:active {
+    transform: rotate(180deg) scale(1.05);
+}
+
+@media (max-width: 768px) {
+    .theme-toggle {
+        top: 1rem;
+        right: 1rem;
+        width: 45px;
+        height: 45px;
+        font-size: 1.25rem;
+    }
+}
+
 /* ===========================
    Selection Styling
    =========================== */
@@ -1081,4 +1246,20 @@ kbd {
 ::-moz-selection {
     background: var(--color-highlight);
     color: var(--bg-terminal);
+}
+
+/* ===========================
+   Accessibility Utilities
+   =========================== */
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
 }

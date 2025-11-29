@@ -15,24 +15,24 @@
         <div class="terminal-window">
             <!-- Window Header -->
             <div class="window-header">
-                <div class="window-controls">
-                    <span class="control-dot red"></span>
-                    <span class="control-dot yellow"></span>
-                    <span class="control-dot green"></span>
+                <div class="window-controls" role="group" aria-label="Window controls">
+                    <span class="control-dot red" role="button" aria-label="Close window" tabindex="0"></span>
+                    <span class="control-dot yellow" role="button" aria-label="Minimize window" tabindex="0"></span>
+                    <span class="control-dot green" role="button" aria-label="Maximize window" tabindex="0"></span>
                 </div>
                 <div class="window-title">rhea@portfolio: ~</div>
-                <div class="window-tabs">
-                    <button class="tab active" data-tab="about">about.md</button>
-                    <button class="tab" data-tab="experience">work_experience.md</button>
-                    <button class="tab" data-tab="work">blog_posts.md</button>
-                    <button class="tab" data-tab="contact">contact.txt</button>
+                <div class="window-tabs" role="tablist" aria-label="Portfolio sections">
+                    <button class="tab active" data-tab="about" role="tab" aria-selected="true" aria-controls="about">about.md</button>
+                    <button class="tab" data-tab="experience" role="tab" aria-selected="false" aria-controls="experience">work_experience.md</button>
+                    <button class="tab" data-tab="work" role="tab" aria-selected="false" aria-controls="work">blog_posts.md</button>
+                    <button class="tab" data-tab="contact" role="tab" aria-selected="false" aria-controls="contact">contact.txt</button>
                 </div>
             </div>
 
             <!-- Terminal Content -->
             <div class="terminal-content">
                 <!-- Welcome Screen -->
-                <div class="tab-content active" id="about">
+                <div class="tab-content active" id="about" role="tabpanel" aria-labelledby="about-tab">
                     <div class="command-line">
                         <span class="prompt">rhea@portfolio</span>
                         <span class="path">~</span>
@@ -43,13 +43,37 @@
                     <div class="output">
                         <div class="profile-section">
                             <img src="dp.jpeg" alt="Rhea Patel" class="profile-pic">
-                            <pre class="ascii-art">
+                            <div class="profile-info">
+                                <pre class="ascii-art">
  ____  _                   ____       _       _
 |  _ \| |__   ___  __ _   |  _ \ __ _| |_ ___| |
 | |_) | '_ \ / _ \/ _` |  | |_) / _` | __/ _ \ |
 |  _ <| | | |  __/ (_| |  |  __/ (_| | ||  __/ |
-|_| \_\_| |_|\___|\__,_|  |_|   \__,_|\__\___|_|
-                            </pre>
+|_| \_\_| |_|\___|\_\_,_|  |_|   \__,_|\__\___|_|
+                                </pre>
+                                <p class="profile-title">Senior Product Leader • AI & Developer Tools</p>
+                                <div class="social-links">
+                                    <a href="mailto:rheapatel23@gmail.com" class="social-icon" aria-label="Email" title="Email">
+                                        <span>✉</span>
+                                    </a>
+                                    <a href="https://www.linkedin.com/in/rheapatel-/" target="_blank" class="social-icon" aria-label="LinkedIn" title="LinkedIn">
+                                        <span>in</span>
+                                    </a>
+                                    <a href="https://devblogs.microsoft.com/visualstudio/author/rhpatel/" target="_blank" class="social-icon" aria-label="Blog" title="Blog">
+                                        <span>✎</span>
+                                    </a>
+                                    <a href="tel:4159967231" class="social-icon" aria-label="Phone" title="Phone">
+                                        <span>☎</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="intro-section">
+                            <p class="intro-text">
+                                <span class="typing-text" id="typingText"></span>
+                                <span class="typing-cursor">|</span>
+                            </p>
                         </div>
 
                         <div class="section">
@@ -61,19 +85,19 @@
                             <span class="comment"># KEY ACHIEVEMENTS</span>
                             <div class="stats-badges">
                                 <div class="stat-badge">
+                                    <span class="badge-icon">�</span>
+                                    <span class="badge-value">100K → 7M</span>
+                                    <span class="badge-label">GitHub Copilot Installs</span>
+                                </div>
+                                <div class="stat-badge">
                                     <span class="badge-icon">👥</span>
-                                    <span class="badge-value">7M+</span>
-                                    <span class="badge-label">Developers Reached</span>
+                                    <span class="badge-value">100K → 1M+</span>
+                                    <span class="badge-label">Copilot Users</span>
                                 </div>
                                 <div class="stat-badge">
                                     <span class="badge-icon">🚀</span>
-                                    <span class="badge-value">300K+</span>
+                                    <span class="badge-value">0 → 300K+</span>
                                     <span class="badge-label">Agent Mode Users</span>
-                                </div>
-                                <div class="stat-badge">
-                                    <span class="badge-icon">🤖</span>
-                                    <span class="badge-value">10+</span>
-                                    <span class="badge-label">AI Models Shipped</span>
                                 </div>
                                 <div class="stat-badge">
                                     <span class="badge-icon">⚡</span>
@@ -110,7 +134,7 @@
                 </div>
 
                 <!-- Work Tab -->
-                <div class="tab-content" id="work">
+                <div class="tab-content" id="work" role="tabpanel" aria-labelledby="work-tab">
                     <div class="command-line">
                         <span class="prompt">rhea@portfolio</span>
                         <span class="path">~</span>
@@ -221,7 +245,7 @@
                 </div>
 
                 <!-- Experience Tab -->
-                <div class="tab-content" id="experience">
+                <div class="tab-content" id="experience" role="tabpanel" aria-labelledby="experience-tab">
                     <div class="command-line">
                         <span class="prompt">rhea@portfolio</span>
                         <span class="path">~</span>
@@ -242,12 +266,12 @@
                                 </div>
                             </div>
                             <ul class="exp-list">
-                                <li>Scaled Agent Mode from 100s to <strong>300K+ users</strong>, launching 0-to-1 multi-agent support with agent-to-agent workflows, shaping Visual Studio's agent-first development strategy, and integrating three new local agents and remote agents into the platform.</li>
-                                <li>Raised SWE Bench scores by <strong>20%</strong> by expanding IDE toolsets and language services integration in Agent Mode and driving design of new planning tools to improve response consistency.</li>
-                                <li>Delivered major performance gains in Agent Mode by leveraging log analysis, competitive benchmarking, and customer feedback; cutting token usage by <strong>30%</strong>, boosting time to first token speed by <strong>25%</strong>.</li>
-                                <li>Redefined Copilot Chat Context from user-invoked to system-augmented and model-driven (tool calling), boosting code acceptance by <strong>30%</strong> and laying the foundation for agentic workflows in Visual Studio.</li>
-                                <li>Introduced <strong>10+ new models</strong> (Anthropic, OpenAI, Google) in Visual Studio, negotiated capacity, guided valuation, launched Bring Your Own Key, and added auto model selection to seamlessly pick the best model for users.</li>
-                                <li><strong>3× growth</strong> Copilot's social and blog impressions, reaching millions of developers; by shifting to transparent, open development and overhauling GTM strategy to accelerate feedback loops and boost user trust.</li>
+                                <li>Scaled Agent Mode from 100s to 300K+ users, launching 0-to-1 multi-agent support with agent-to-agent workflows, shaping Visual Studio's agent-first development strategy, and integrating three new local agents and remote agents into the platform.</li>
+                                <li>Raised SWE Bench scores by 20% by expanding IDE toolsets and language services integration in Agent Mode and driving design of new planning tools to improve response consistency.</li>
+                                <li>Delivered major performance gains in Agent Mode by leveraging log analysis, competitive benchmarking, and customer feedback; cutting token usage by 30%, boosting time to first token speed by 25%.</li>
+                                <li>Redefined Copilot Chat Context from user-invoked to system-augmented and model-driven (tool calling), boosting code acceptance by 30% and laying the foundation for agentic workflows in Visual Studio.</li>
+                                <li>Introduced 10+ new models (Anthropic, OpenAI, Google) in Visual Studio, negotiated capacity, guided valuation, launched Bring Your Own Key, and added auto model selection to seamlessly pick the best model for users.</li>
+                                <li>3× growth Copilot's social and blog impressions, reaching millions of developers; by shifting to transparent, open development and overhauling GTM strategy to accelerate feedback loops and boost user trust.</li>
                             </ul>
                         </div>
 
@@ -260,10 +284,10 @@
                                 </div>
                             </div>
                             <ul class="exp-list">
-                                <li>Delivered <strong>1M+ new Copilot users</strong> and <strong>150K pre-launch sign-ups</strong> by leading the Copilot Free rollout in Visual Studio - owning the Free SKU design and the cross-editor user journey (VS Code, Visual Studio, JetBrains) which led to 8M+ users in the first months.</li>
+                                <li>Delivered 1M+ new Copilot users and 150K pre-launch sign-ups by leading the Copilot Free rollout in Visual Studio - owning the Free SKU design and the cross-editor user journey (VS Code, Visual Studio, JetBrains) which led to 8M+ users in the first months.</li>
                                 <li>Served as a lead architect of Copilot's pricing and usage model - defining SKUs, introducing consumptive billing, with consistent token metering, directly contributing to GitHub's ARR growth.</li>
-                                <li>Scaled adoption to <strong>7M</strong> by making GitHub Copilot a seamless, default experience lowering adoption barriers.</li>
-                                <li>Led growth through A/B experiments and new UX in IDE and Chat, reducing onboarding drop-off by <strong>5%</strong>, increasing sign-ins by <strong>183%</strong>, and re-engaging <strong>41%</strong> of churned users.</li>
+                                <li>Scaled adoption to 7M by making GitHub Copilot a seamless, default experience lowering adoption barriers.</li>
+                                <li>Led growth through A/B experiments and new UX in IDE and Chat, reducing onboarding drop-off by 5%, increasing sign-ins by 183%, and re-engaging 41% of churned users.</li>
                                 <li>Early member of the GitHub Copilot team, contributing to the launch and GA of Copilot Chat and shaping foundational roadmap.</li>
                             </ul>
                         </div>
@@ -314,7 +338,7 @@
                 </div>
 
                 <!-- Contact Tab -->
-                <div class="tab-content" id="contact">
+                <div class="tab-content" id="contact" role="tabpanel" aria-labelledby="contact-tab">
                     <div class="command-line">
                         <span class="prompt">rhea@portfolio</span>
                         <span class="path">~</span>
@@ -397,9 +421,14 @@
         </div>
     </div>
 
+    <!-- Theme Toggle Button -->
+    <button id="themeToggle" class="theme-toggle" title="Toggle light/dark mode" aria-label="Toggle between light and dark mode">
+        <span aria-hidden="true">☀️</span>
+    </button>
+
     <!-- Back to Top Button -->
-    <button id="backToTop" class="back-to-top" title="Back to top">
-        <span>↑</span>
+    <button id="backToTop" class="back-to-top" title="Back to top" aria-label="Scroll back to top">
+        <span aria-hidden="true">↑</span>
     </button>
 
     <script src="script.js"></script>

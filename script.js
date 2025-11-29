@@ -8,7 +8,10 @@ function switchTab(tabId) {
     const tabContents = document.querySelectorAll('.tab-content');
 
     // Remove active from all
-    tabs.forEach(t => t.classList.remove('active'));
+    tabs.forEach(t => {
+        t.classList.remove('active');
+        t.setAttribute('aria-selected', 'false');
+    });
     tabContents.forEach(content => content.classList.remove('active'));
 
     // Add active to target
@@ -17,6 +20,7 @@ function switchTab(tabId) {
 
     if (targetTab && targetContent) {
         targetTab.classList.add('active');
+        targetTab.setAttribute('aria-selected', 'true');
         targetContent.classList.add('active');
 
         // Scroll to top of terminal content
@@ -25,6 +29,28 @@ function switchTab(tabId) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+    // Typing animation
+    const typingText = document.getElementById('typingText');
+    const text = "hi, I'm rhea 👋 NZ-born, AU-raised, SF-based. I'm into food, coffee, skiing, pottery, and EDM. below is a quick look at the work I do in AI + developer tools.";
+    let index = 0;
+    
+    function type() {
+        if (index < text.length) {
+            typingText.textContent += text.charAt(index);
+            index++;
+            setTimeout(type, 30); // Adjust speed here (lower = faster)
+        } else {
+            // Optional: remove cursor after typing is done
+            setTimeout(() => {
+                const cursor = document.querySelector('.typing-cursor');
+                if (cursor) cursor.style.display = 'none';
+            }, 2000);
+        }
+    }
+    
+    // Start typing after a brief delay
+    setTimeout(type, 500);
+
     // Tab switching functionality
     const tabs = document.querySelectorAll('.tab');
     const tabContents = document.querySelectorAll('.tab-content');
@@ -34,11 +60,15 @@ document.addEventListener('DOMContentLoaded', () => {
             const targetId = tab.dataset.tab;
 
             // Remove active class from all tabs and contents
-            tabs.forEach(t => t.classList.remove('active'));
+            tabs.forEach(t => {
+                t.classList.remove('active');
+                t.setAttribute('aria-selected', 'false');
+            });
             tabContents.forEach(content => content.classList.remove('active'));
 
             // Add active class to clicked tab and corresponding content
             tab.classList.add('active');
+            tab.setAttribute('aria-selected', 'true');
             document.getElementById(targetId).classList.add('active');
 
             // Scroll to top
@@ -93,26 +123,50 @@ document.addEventListener('DOMContentLoaded', () => {
     const greenDot = document.querySelector('.control-dot.green');
     const terminalWindow = document.querySelector('.terminal-window');
 
-    redDot.addEventListener('click', () => {
+    const handleRedDot = () => {
         // Easter egg: shake effect
         terminalWindow.style.animation = 'shake 0.5s';
         setTimeout(() => {
             terminalWindow.style.animation = '';
         }, 500);
-    });
+    };
 
-    yellowDot.addEventListener('click', () => {
+    const handleYellowDot = () => {
         // Minimize effect
         terminalWindow.style.transform = 'scale(0.95)';
         setTimeout(() => {
             terminalWindow.style.transform = 'scale(1)';
         }, 200);
-    });
+    };
 
-    greenDot.addEventListener('click', () => {
+    const handleGreenDot = () => {
         // Fullscreen toggle effect
         document.body.style.padding = document.body.style.padding === '0px' ? '2rem' : '0px';
         terminalWindow.style.borderRadius = terminalWindow.style.borderRadius === '0px' ? '12px' : '0px';
+    };
+
+    redDot.addEventListener('click', handleRedDot);
+    redDot.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            handleRedDot();
+        }
+    });
+
+    yellowDot.addEventListener('click', handleYellowDot);
+    yellowDot.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            handleYellowDot();
+        }
+    });
+
+    greenDot.addEventListener('click', handleGreenDot);
+    greenDot.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            handleGreenDot();
+        }
     });
 
     // Add typing effect to command prompt cursor
@@ -234,6 +288,40 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // CSS already handles display logic via .tab-content and .tab-content.active classes
     // No need for manual display manipulation
+
+    // Theme Toggle Functionality
+    const themeToggle = document.getElementById('themeToggle');
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    
+    // Apply saved theme on load
+    if (savedTheme === 'light') {
+        document.body.classList.add('light-mode');
+        themeToggle.innerHTML = '<span aria-hidden="true">🌙</span>';
+        themeToggle.setAttribute('title', 'Switch to dark mode');
+        themeToggle.setAttribute('aria-label', 'Switch to dark mode');
+    }
+
+    themeToggle.addEventListener('click', () => {
+        document.body.classList.toggle('light-mode');
+        const isLight = document.body.classList.contains('light-mode');
+        
+        // Update icon and labels
+        themeToggle.innerHTML = isLight ? '<span aria-hidden="true">🌙</span>' : '<span aria-hidden="true">☀️</span>';
+        themeToggle.setAttribute('title', isLight ? 'Switch to dark mode' : 'Switch to light mode');
+        themeToggle.setAttribute('aria-label', isLight ? 'Switch to dark mode' : 'Switch to light mode');
+        
+        // Save preference
+        localStorage.setItem('theme', isLight ? 'light' : 'dark');
+        
+        // Announce to screen readers
+        const announcement = document.createElement('div');
+        announcement.setAttribute('role', 'status');
+        announcement.setAttribute('aria-live', 'polite');
+        announcement.className = 'sr-only';
+        announcement.textContent = `Switched to ${isLight ? 'light' : 'dark'} mode`;
+        document.body.appendChild(announcement);
+        setTimeout(() => announcement.remove(), 1000);
+    });
 
     // Back to Top Button Functionality
     const backToTopButton = document.getElementById('backToTop');
