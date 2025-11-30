@@ -25,6 +25,7 @@
                     <button class="tab active" data-tab="about" role="tab" aria-selected="true" aria-controls="about">about.md</button>
                     <button class="tab" data-tab="experience" role="tab" aria-selected="false" aria-controls="experience">work_experience.md</button>
                     <button class="tab" data-tab="work" role="tab" aria-selected="false" aria-controls="work">blog_posts.md</button>
+                    <button class="tab" data-tab="personal" role="tab" aria-selected="false" aria-controls="personal">personal.txt</button>
                     <button class="tab" data-tab="contact" role="tab" aria-selected="false" aria-controls="contact">contact.txt</button>
                 </div>
             </div>
@@ -83,8 +84,8 @@
                             <div class="stats-badges">
                                 <div class="stat-badge">
                                     <span class="badge-icon">�</span>
-                                    <span class="badge-value">100K → 7M</span>
-                                    <span class="badge-label">GitHub Copilot Installs</span>
+                                    <span class="badge-value">200K → 7M</span>
+                                    <span class="badge-label">GitHub Copilot Downloads</span>
                                 </div>
                                 <div class="stat-badge">
                                     <span class="badge-icon">👥</span>
@@ -93,13 +94,8 @@
                                 </div>
                                 <div class="stat-badge">
                                     <span class="badge-icon">🚀</span>
-                                    <span class="badge-value">0 → 300K+</span>
+                                    <span class="badge-value">100s → 300K+</span>
                                     <span class="badge-label">Agent Mode Users</span>
-                                </div>
-                                <div class="stat-badge">
-                                    <span class="badge-icon">⚡</span>
-                                    <span class="badge-value">40+</span>
-                                    <span class="badge-label">Team Members Led</span>
                                 </div>
                             </div>
                         </div>
@@ -123,6 +119,7 @@
                             <div class="bottom-nav">
                                 <button class="bottom-nav-btn" onclick="switchTab('experience')">→ Work Experience</button>
                                 <button class="bottom-nav-btn" onclick="switchTab('work')">→ Blog Posts</button>
+                                <button class="bottom-nav-btn" onclick="switchTab('personal')">→ Personal</button>
                                 <button class="bottom-nav-btn" onclick="switchTab('contact')">→ Contact</button>
                             </div>
                         </div>
@@ -234,6 +231,7 @@
                             <div class="bottom-nav">
                                 <button class="bottom-nav-btn" onclick="switchTab('about')">→ About</button>
                                 <button class="bottom-nav-btn" onclick="switchTab('experience')">→ Work Experience</button>
+                                <button class="bottom-nav-btn" onclick="switchTab('personal')">→ Personal</button>
                                 <button class="bottom-nav-btn" onclick="switchTab('contact')">→ Contact</button>
                             </div>
                         </div>
@@ -327,6 +325,188 @@
                             <div class="bottom-nav">
                                 <button class="bottom-nav-btn" onclick="switchTab('about')">→ About</button>
                                 <button class="bottom-nav-btn" onclick="switchTab('work')">→ Blog Posts</button>
+                                <button class="bottom-nav-btn" onclick="switchTab('personal')">→ Personal</button>
+                                <button class="bottom-nav-btn" onclick="switchTab('contact')">→ Contact</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Personal Tab -->
+                <div class="tab-content" id="personal" role="tabpanel" aria-labelledby="personal-tab">
+                    <div class="command-line">
+                        <span class="prompt">rhea@portfolio</span>
+                        <span class="path">~</span>
+                        <span class="dollar">$</span>
+                        <span class="command">cat personal.txt</span>
+                    </div>
+
+                    <div class="output">
+                        <pre class="ascii-art-small">
+ ____  _____ ____  ____   ___  _   _    _    _
+|  _ \| ____|  _ \/ ___| / _ \| \ | |  / \  | |
+| |_) |  _| | |_) \___ \| | | |  \| | / _ \ | |
+|  __/| |___|  _ < ___) | |_| | |\  |/ ___ \| |___
+|_|   |_____|_| \_\____/ \___/|_| \_/_/   \_\_____|
+                        </pre>
+
+                        <div class="section">
+                            <span class="comment"># BEYOND THE CODE</span>
+                            <p class="text">When I'm not building AI products, you'll find me exploring life's other passions...</p>
+                        </div>
+
+                        <!-- Currently Section -->
+                        <div class="section">
+                            <span class="comment"># CURRENTLY</span>
+                            <div class="currently-grid">
+                                
+                                <div class="currently-item">
+                                    <span class="currently-icon">🎧</span>
+                                    <div class="currently-content">
+                                        <span class="currently-label">Listening to</span>
+                                        <span class="currently-value">DtMF</span>
+                                    </div>
+                                </div>
+                                <div class="currently-item">
+                                    <span class="currently-icon">😍</span>
+                                    <div class="currently-content">
+                                        <span class="currently-label">Obsessed with</span>
+                                        <span class="currently-value">Saint Frank Coffee</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Spotify Embed -->
+                        <div class="section">
+                            <span class="comment"># NOW PLAYING</span>
+                            <div class="spotify-embed">
+                                <iframe 
+                                    style="border-radius:12px" 
+                                    src="https://open.spotify.com/embed/artist/4oLeXFyACqeem2VImYeBFe?utm_source=generator&theme=0" 
+                                    width="100%" 
+                                    height="352" 
+                                    frameBorder="0" 
+                                    allowfullscreen="" 
+                                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+                                    loading="lazy">
+                                </iframe>
+                                <a href="https://open.spotify.com/user/1242992957?si=9fc8f895eda4470a" target="_blank" class="spotify-profile-link">
+                                    → Follow my Spotify profile for more
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Journey Map -->
+                        <div class="section">
+                            <span class="comment"># MY JOURNEY</span>
+                            <div class="journey-map">
+                                <div class="journey-path">
+                                    <div class="journey-stop">
+                                        <div class="journey-marker"></div>
+                                        <div class="journey-details">
+                                            <span class="journey-flag">🇳🇿</span>
+                                            <span class="journey-location">New Zealand</span>
+                                            <span class="journey-label">Born</span>
+                                        </div>
+                                    </div>
+                                    <div class="journey-line"></div>
+                                    <div class="journey-stop">
+                                        <div class="journey-marker"></div>
+                                        <div class="journey-details">
+                                            <span class="journey-flag">🇦🇺</span>
+                                            <span class="journey-location">Melbourne, AU</span>
+                                            <span class="journey-label">Raised & Educated</span>
+                                        </div>
+                                    </div>
+                                    <div class="journey-line"></div>
+                                    <div class="journey-stop">
+                                        <div class="journey-marker"></div>
+                                        <div class="journey-details">
+                                            <span class="journey-flag">🇺🇸</span>
+                                            <span class="journey-location">Seattle, WA</span>
+                                            <span class="journey-label">Another City</span>
+                                        </div>
+                                    </div>
+                                    <div class="journey-line"></div>
+                                    <div class="journey-stop">
+                                        <div class="journey-marker"></div>
+                                        <div class="journey-details">
+                                            <span class="journey-flag">🇺🇸</span>
+                                            <span class="journey-location">New York, NY</span>
+                                            <span class="journey-label">Best City in the World</span>
+                                        </div>
+                                    </div>
+                                    <div class="journey-line"></div>
+                                    <div class="journey-stop current">
+                                        <div class="journey-marker pulse"></div>
+                                        <div class="journey-details">
+                                            <span class="journey-flag">🇺🇸</span>
+                                            <span class="journey-location">San Francisco, CA</span>
+                                            <span class="journey-label">Home (for now) ✨</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="personal-grid">
+                            <div class="personal-card">
+                                <div class="personal-card-header">
+                                    <span class="personal-icon">🎵</span>
+                                    <h3 class="personal-title">Music & Vibes</h3>
+                                </div>
+                                <p class="personal-description">From deep house to techno, I live for EDM. Check out my Spotify to see what's on repeat.</p>
+                                <a href="https://open.spotify.com/user/1242992957?si=9fc8f895eda4470a" target="_blank" class="personal-link">
+                                    <span class="link-icon">♫</span>
+                                    Follow me on Spotify
+                                </a>
+                            </div>
+
+                            <div class="personal-card">
+                                <div class="personal-card-header">
+                                    <span class="personal-icon">🍽️</span>
+                                    <h3 class="personal-title">Food Adventures</h3>
+                                </div>
+                                <p class="personal-description">Always on the hunt for the best restaurants in SF. Follow my food journey and discover hidden gems.</p>
+                                <a href="https://beli.app/rheapatel" target="_blank" class="personal-link">
+                                    <span class="link-icon">📍</span>
+                                    See my Beli recommendations
+                                </a>
+                            </div>
+
+                            <div class="personal-card">
+                                <div class="personal-card-header">
+                                    <span class="personal-icon">⛷️</span>
+                                    <h3 class="personal-title">Mountain Life</h3>
+                                </div>
+                                <p class="personal-description">Powder days are the best days. You'll find me on the slopes at Tahoe whenever there's fresh snow.</p>
+                            </div>
+
+                            <div class="personal-card">
+                                <div class="personal-card-header">
+                                    <span class="personal-icon">🏺</span>
+                                    <h3 class="personal-title">Pottery & Making</h3>
+                                </div>
+                                <p class="personal-description">There's something meditative about working with clay. Creating with my hands balances the digital world.</p>
+                            </div>
+
+                            <div class="personal-card">
+                                <div class="personal-card-header">
+                                    <span class="personal-icon">☕</span>
+                                    <h3 class="personal-title">Coffee Culture</h3>
+                                </div>
+                                <p class="personal-description">Third-wave coffee enthusiast. Always exploring SF's best cafes and perfecting my pour-over technique.</p>
+                            </div>
+
+            
+
+                        <div class="section nav-links-section">
+                            <span class="comment"># Explore More</span>
+                            <div class="bottom-nav">
+                                <button class="bottom-nav-btn" onclick="switchTab('about')">→ About</button>
+                                <button class="bottom-nav-btn" onclick="switchTab('experience')">→ Work Experience</button>
+                                <button class="bottom-nav-btn" onclick="switchTab('work')">→ Blog Posts</button>
                                 <button class="bottom-nav-btn" onclick="switchTab('contact')">→ Contact</button>
                             </div>
                         </div>
@@ -388,6 +568,7 @@
                                 <button class="bottom-nav-btn" onclick="switchTab('about')">→ About</button>
                                 <button class="bottom-nav-btn" onclick="switchTab('experience')">→ Work Experience</button>
                                 <button class="bottom-nav-btn" onclick="switchTab('work')">→ Blog Posts</button>
+                                <button class="bottom-nav-btn" onclick="switchTab('personal')">→ Personal</button>
                             </div>
                         </div>
                     </div>
