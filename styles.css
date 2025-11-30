@@ -722,7 +722,7 @@ body {
 }
 
 .exp-title {
-    font-size: 1.4rem;
+    font-size: 1.15rem;
     font-weight: 700;
     color: var(--color-function);
     margin-bottom: 0.5rem;
@@ -731,14 +731,14 @@ body {
 }
 
 .exp-subtitle {
-    font-size: 1.05rem;
+    font-size: 0.95rem;
     color: var(--color-keyword);
     margin-bottom: 0.5rem;
     font-weight: 500;
 }
 
 .exp-company {
-    font-size: 0.95rem;
+    font-size: 0.85rem;
     color: var(--text-dim);
     display: flex;
     align-items: center;
@@ -758,9 +758,9 @@ body {
 
 .exp-list li {
     color: var(--text-secondary);
-    margin-bottom: 1.5rem;
-    line-height: 2;
-    font-size: 1.05rem;
+    margin-bottom: 1.2rem;
+    line-height: 1.7;
+    font-size: 0.95rem;
     padding-left: 2rem;
     position: relative;
     transition: all 0.3s ease;
@@ -1006,6 +1006,24 @@ kbd {
         padding: 1rem;
     }
 
+    .exp-title {
+        font-size: 1rem;
+    }
+
+    .exp-subtitle {
+        font-size: 0.9rem;
+    }
+
+    .exp-company {
+        font-size: 0.8rem;
+    }
+
+    .exp-list li {
+        font-size: 0.9rem;
+        line-height: 1.6;
+        margin-bottom: 1rem;
+    }
+
     .window-header {
         flex-wrap: wrap;
     }
@@ -1106,6 +1124,19 @@ kbd {
 }
 
 @media (max-width: 480px) {
+    .exp-title {
+        font-size: 0.95rem;
+    }
+
+    .exp-subtitle {
+        font-size: 0.85rem;
+    }
+
+    .exp-list li {
+        font-size: 0.85rem;
+        line-height: 1.5;
+    }
+
     .profile-pic {
         width: 80px;
         height: 80px;
