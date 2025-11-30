@@ -291,7 +291,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Theme Toggle Functionality
     const themeToggle = document.getElementById('themeToggle');
-    const savedTheme = localStorage.getItem('theme') || 'light';
+    const savedTheme = localStorage.getItem('theme') || 'dark';
     
     // Apply saved theme on load
     if (savedTheme === 'light') {
