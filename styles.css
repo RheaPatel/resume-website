@@ -76,8 +76,51 @@ body {
     color: var(--text-primary);
     line-height: 1.7;
     padding: 2rem;
+    padding-top: 4rem;
     min-height: 100vh;
     cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"><text y="16" font-size="16">▸</text></svg>'), auto;
+}
+
+/* ===========================
+   WIP Banner
+   =========================== */
+
+.wip-banner {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(90deg, var(--color-keyword), var(--color-function));
+    color: white;
+    padding: 0.5rem 1rem;
+    text-align: center;
+    font-size: 0.85rem;
+    font-weight: 500;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.wip-icon {
+    font-size: 1rem;
+}
+
+.wip-text {
+    letter-spacing: 0.5px;
+}
+
+@media (max-width: 768px) {
+    .wip-banner {
+        font-size: 0.75rem;
+        padding: 0.4rem 0.75rem;
+    }
+    
+    body {
+        padding-top: 3.5rem;
+    }
 }
 
 /* ===========================
@@ -454,6 +497,48 @@ body {
     font-size: 0.6rem;
     line-height: 1.2;
     margin-bottom: 1.5rem;
+}
+
+/* ===========================
+   GitHub Contribution Graph
+   =========================== */
+
+.github-contrib {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.github-chart {
+    width: 100%;
+    max-width: 700px;
+    height: auto;
+    border-radius: 8px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.5);
+}
+
+body:not(.light-mode) .github-chart {
+    filter: invert(1) hue-rotate(180deg);
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+.github-profile-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--color-link);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.github-profile-link:hover {
+    color: var(--color-highlight);
+    transform: translateX(4px);
 }
 
 /* ===========================
