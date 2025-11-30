@@ -34,7 +34,7 @@
     --shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
 
     /* Content Width */
-    --content-max-width: 800px;
+    --content-max-width: 1000px;
 }
 
 /* Light Mode Theme */
@@ -228,7 +228,7 @@ body {
    =========================== */
 
 .terminal-content {
-    padding: 2rem;
+    padding: 2rem 3rem;
     min-height: 60vh;
     max-height: 80vh;
     overflow-y: auto;
