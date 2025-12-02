@@ -36,9 +36,14 @@
     /* Content Width */
     --content-max-width: 1000px;
     
-    /* Responsive Typography */
-    --base-font-size: clamp(0.875rem, 0.8rem + 0.4vw, 1rem);
-    --heading-scale: clamp(1.25rem, 1rem + 1vw, 1.5rem);
+    /* Fluid Typography - scales smoothly with viewport */
+    --text-xs: clamp(0.65rem, 0.6rem + 0.25vw, 0.75rem);
+    --text-sm: clamp(0.75rem, 0.7rem + 0.3vw, 0.875rem);
+    --text-base: clamp(0.85rem, 0.75rem + 0.5vw, 1rem);
+    --text-lg: clamp(0.95rem, 0.85rem + 0.5vw, 1.125rem);
+    --text-xl: clamp(1.1rem, 0.9rem + 0.75vw, 1.5rem);
+    --text-2xl: clamp(1.25rem, 1rem + 1vw, 1.75rem);
+    --text-3xl: clamp(1.5rem, 1.2rem + 1.25vw, 2rem);
 }
 
 /* Light Mode Theme */
@@ -98,7 +103,7 @@ body {
     color: white;
     padding: 0.5rem 1rem;
     text-align: center;
-    font-size: 0.85rem;
+    font-size: var(--text-sm);
     font-weight: 500;
     z-index: 9999;
     display: flex;
@@ -204,8 +209,8 @@ body {
     border: none;
     color: var(--text-secondary);
     font-family: inherit;
-    font-size: 0.85rem;
-    padding: 0.5rem 1rem;
+    font-size: var(--text-xs);
+    padding: 0.5rem 0.75rem;
     border-radius: 6px 6px 0 0;
     cursor: pointer;
     transition: all 0.2s;
@@ -296,7 +301,7 @@ body {
 
 .intro-text {
     color: var(--text-secondary);
-    font-size: 1.1rem;
+    font-size: var(--text-lg);
     line-height: 1.8;
     font-style: italic;
 }
@@ -323,7 +328,7 @@ body {
 
 .command-line {
     margin-bottom: 1.5rem;
-    font-size: 0.95rem;
+    font-size: var(--text-sm);
 }
 
 .prompt {
@@ -368,7 +373,7 @@ body {
     color: var(--text-secondary);
     margin-bottom: 0.75rem;
     line-height: 1.9;
-    font-size: 1.05rem;
+    font-size: var(--text-base);
 }
 
 .keyword {
@@ -446,14 +451,14 @@ body {
 
 .profile-title {
     color: var(--text-secondary);
-    font-size: 1.1rem;
+    font-size: var(--text-lg);
     margin: 0;
     font-weight: 500;
 }
 
 .profile-location {
     color: var(--text-dim);
-    font-size: 0.95rem;
+    font-size: var(--text-sm);
     margin: 0;
     display: flex;
     align-items: center;
@@ -682,7 +687,7 @@ body:not(.light-mode) .github-chart {
 }
 
 .badge-value {
-    font-size: 2rem;
+    font-size: var(--text-2xl);
     font-weight: 700;
     color: var(--color-highlight);
     margin-bottom: 0.5rem;
@@ -690,7 +695,7 @@ body:not(.light-mode) .github-chart {
 }
 
 .badge-label {
-    font-size: 0.9rem;
+    font-size: var(--text-sm);
     color: var(--text-secondary);
     line-height: 1.4;
     font-weight: 500;
@@ -848,7 +853,7 @@ body:not(.light-mode) .github-chart {
 }
 
 .exp-title {
-    font-size: 1.15rem;
+    font-size: var(--text-lg);
     font-weight: 700;
     color: var(--color-function);
     margin-bottom: 0.5rem;
@@ -857,14 +862,14 @@ body:not(.light-mode) .github-chart {
 }
 
 .exp-subtitle {
-    font-size: 0.95rem;
+    font-size: var(--text-sm);
     color: var(--color-keyword);
     margin-bottom: 0.5rem;
     font-weight: 500;
 }
 
 .exp-company {
-    font-size: 0.85rem;
+    font-size: var(--text-xs);
     color: var(--text-dim);
     display: flex;
     align-items: center;
@@ -886,7 +891,7 @@ body:not(.light-mode) .github-chart {
     color: var(--text-secondary);
     margin-bottom: 1.2rem;
     line-height: 1.7;
-    font-size: 0.95rem;
+    font-size: var(--text-sm);
     padding-left: 2rem;
     position: relative;
     transition: all 0.3s ease;
@@ -1441,30 +1446,6 @@ kbd {
         padding: 0.75rem;
         padding-top: 3.5rem;
     }
-    
-    .wip-banner {
-        font-size: 0.7rem;
-        padding: 0.4rem 0.5rem;
-    }
-
-    .exp-title {
-        font-size: 1rem;
-    }
-
-    .exp-subtitle {
-        font-size: 0.9rem;
-    }
-
-    .exp-company {
-        font-size: 0.8rem;
-    }
-
-    .exp-list li {
-        font-size: 0.9rem;
-        line-height: 1.6;
-        margin-bottom: 1rem;
-        padding-left: 1.5rem;
-    }
 
     .window-header {
         flex-wrap: wrap;
@@ -1486,7 +1467,6 @@ kbd {
 
     .terminal-content {
         padding: 1rem;
-        font-size: 0.9rem;
         max-height: none;
     }
 
@@ -1507,16 +1487,7 @@ kbd {
     }
 
     .ascii-art {
-        font-size: 0.35rem;
         display: none;
-    }
-    
-    .profile-title {
-        font-size: 1rem;
-    }
-    
-    .profile-location {
-        font-size: 0.85rem;
     }
     
     .intro-section {
@@ -1602,47 +1573,10 @@ kbd {
         padding: 0.5rem;
         padding-top: 3rem;
     }
-    
-    .wip-banner {
-        font-size: 0.65rem;
-        padding: 0.35rem 0.5rem;
-        gap: 0.5rem;
-    }
-    
-    .wip-icon {
-        font-size: 0.8rem;
-    }
-
-    .exp-title {
-        font-size: 0.95rem;
-    }
-
-    .exp-subtitle {
-        font-size: 0.85rem;
-    }
-
-    .exp-list li {
-        font-size: 0.85rem;
-        line-height: 1.6;
-        padding-left: 1.25rem;
-    }
-    
-    .exp-list li::before {
-        left: 0;
-        font-size: 1rem;
-    }
 
     .profile-pic {
         width: 70px;
         height: 70px;
-    }
-    
-    .profile-title {
-        font-size: 0.9rem;
-    }
-    
-    .profile-location {
-        font-size: 0.8rem;
     }
     
     .social-links {
@@ -1652,19 +1586,10 @@ kbd {
     .social-icon {
         width: 36px;
         height: 36px;
-        font-size: 0.95rem;
     }
 
     .ascii-art {
         display: none;
-    }
-    
-    .ascii-art-small {
-        font-size: 0.35rem;
-    }
-
-    .stat-value {
-        font-size: 1.5rem;
     }
 
     .stats-grid {
@@ -1682,18 +1607,6 @@ kbd {
         justify-content: flex-start;
         text-align: left;
         gap: 1rem;
-    }
-    
-    .badge-icon {
-        font-size: 1.75rem;
-    }
-
-    .badge-value {
-        font-size: 1.25rem;
-    }
-    
-    .badge-label {
-        font-size: 0.8rem;
     }
     
     .github-chart {
@@ -1763,14 +1676,6 @@ kbd {
     
     .section {
         margin-bottom: 1.5rem;
-    }
-    
-    .theme-toggle {
-        width: 40px;
-        height: 40px;
-        top: 0.5rem;
-        right: 0.5rem;
-        font-size: 1.1rem;
     }
 
     .back-to-top {
@@ -1849,46 +1754,47 @@ kbd {
 }
 
 /* ===========================
-   Theme Toggle Button
+   Theme Toggle Button (in header)
    =========================== */
 
-.theme-toggle {
-    position: fixed;
-    top: 2rem;
-    right: 2rem;
-    width: 50px;
-    height: 50px;
+.theme-toggle-header {
+    width: 32px;
+    height: 32px;
     background: rgba(255, 255, 255, 0.1);
-    border: 2px solid var(--color-highlight);
-    border-radius: 50%;
+    border: 1px solid var(--color-highlight);
+    border-radius: 6px;
     color: var(--color-highlight);
-    font-size: 1.5rem;
+    font-size: 1rem;
     cursor: pointer;
     transition: all 0.3s ease;
-    z-index: 1000;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    margin-left: auto;
+    margin-right: 0.5rem;
+    flex-shrink: 0;
 }
 
-.theme-toggle:hover {
+.theme-toggle-header:hover {
     background: rgba(255, 255, 255, 0.2);
-    transform: rotate(180deg) scale(1.1);
-    box-shadow: 0 8px 24px rgba(80, 250, 123, 0.4);
+    transform: scale(1.1);
 }
 
-.theme-toggle:active {
-    transform: rotate(180deg) scale(1.05);
+.theme-toggle-header:active {
+    transform: scale(1.05);
+}
+
+.theme-toggle-header:focus {
+    outline: 2px solid var(--color-highlight);
+    outline-offset: 2px;
 }
 
 @media (max-width: 768px) {
-    .theme-toggle {
-        top: 1rem;
-        right: 1rem;
-        width: 45px;
-        height: 45px;
-        font-size: 1.25rem;
+    .theme-toggle-header {
+        width: 28px;
+        height: 28px;
+        font-size: 0.85rem;
+        margin-right: 0.25rem;
     }
 }
 
@@ -1976,15 +1882,10 @@ kbd {
         font-size: 0.7rem;
     }
     
-    .theme-toggle, .back-to-top {
+    .back-to-top {
         width: 35px;
         height: 35px;
         font-size: 1rem;
-    }
-    
-    .theme-toggle {
-        top: 0.5rem;
-        right: 0.5rem;
     }
 }
 
@@ -2030,7 +1931,7 @@ kbd {
         border: 1px solid #ddd;
     }
     
-    .theme-toggle,
+    .theme-toggle-header,
     .back-to-top,
     .wip-banner {
         display: none;
