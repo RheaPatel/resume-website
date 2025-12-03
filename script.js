@@ -1,32 +1,7 @@
 // ===========================
 // Terminal Resume - JavaScript
+// Single-page scroll navigation
 // ===========================
-
-// Global function for tab switching (used by bottom nav buttons)
-function switchTab(tabId) {
-    const tabs = document.querySelectorAll('.tab');
-    const tabContents = document.querySelectorAll('.tab-content');
-
-    // Remove active from all
-    tabs.forEach(t => {
-        t.classList.remove('active');
-        t.setAttribute('aria-selected', 'false');
-    });
-    tabContents.forEach(content => content.classList.remove('active'));
-
-    // Add active to target
-    const targetTab = document.querySelector(`.tab[data-tab="${tabId}"]`);
-    const targetContent = document.getElementById(tabId);
-
-    if (targetTab && targetContent) {
-        targetTab.classList.add('active');
-        targetTab.setAttribute('aria-selected', 'true');
-        targetContent.classList.add('active');
-
-        // Scroll to top of terminal content
-        document.querySelector('.terminal-content').scrollTop = 0;
-    }
-}
 
 document.addEventListener('DOMContentLoaded', () => {
     // Typing animation
@@ -38,9 +13,8 @@ document.addEventListener('DOMContentLoaded', () => {
         if (index < text.length) {
             typingText.textContent += text.charAt(index);
             index++;
-            setTimeout(type, 30); // Adjust speed here (lower = faster)
+            setTimeout(type, 30);
         } else {
-            // Optional: remove cursor after typing is done
             setTimeout(() => {
                 const cursor = document.querySelector('.typing-cursor');
                 if (cursor) cursor.style.display = 'none';
@@ -48,47 +22,79 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
     
-    // Start typing after a brief delay
     setTimeout(type, 500);
 
-    // Tab switching functionality
+    // Tab navigation - smooth scroll to sections
     const tabs = document.querySelectorAll('.tab');
-    const tabContents = document.querySelectorAll('.tab-content');
+    const sections = document.querySelectorAll('.page-section');
+    const terminalContent = document.querySelector('.terminal-content');
 
+    // Handle tab clicks for smooth scrolling
     tabs.forEach(tab => {
-        tab.addEventListener('click', () => {
-            const targetId = tab.dataset.tab;
-
-            // Remove active class from all tabs and contents
-            tabs.forEach(t => {
-                t.classList.remove('active');
-                t.setAttribute('aria-selected', 'false');
-            });
-            tabContents.forEach(content => content.classList.remove('active'));
-
-            // Add active class to clicked tab and corresponding content
-            tab.classList.add('active');
-            tab.setAttribute('aria-selected', 'true');
-            document.getElementById(targetId).classList.add('active');
-
-            // Scroll to top
-            document.querySelector('.terminal-content').scrollTop = 0;
+        tab.addEventListener('click', (e) => {
+            e.preventDefault();
+            const targetId = tab.getAttribute('href').substring(1);
+            const targetSection = document.getElementById(targetId);
+            
+            if (targetSection && terminalContent) {
+                // Calculate offset within terminal content
+                const offsetTop = targetSection.offsetTop - terminalContent.offsetTop;
+                
+                terminalContent.scrollTo({
+                    top: offsetTop,
+                    behavior: 'smooth'
+                });
+            }
         });
     });
 
+    // Update active tab based on scroll position
+    function updateActiveTab() {
+        if (!terminalContent) return;
+        
+        const scrollTop = terminalContent.scrollTop;
+        const offset = 100; // Buffer for determining active section
+        
+        let currentSection = 'about';
+        
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop - terminalContent.offsetTop;
+            if (scrollTop >= sectionTop - offset) {
+                currentSection = section.id;
+            }
+        });
+        
+        tabs.forEach(tab => {
+            const tabSection = tab.getAttribute('data-section');
+            if (tabSection === currentSection) {
+                tab.classList.add('active');
+            } else {
+                tab.classList.remove('active');
+            }
+        });
+    }
+
+    // Listen to scroll events on terminal content
+    if (terminalContent) {
+        terminalContent.addEventListener('scroll', updateActiveTab);
+    }
+
     // Keyboard shortcuts
     document.addEventListener('keydown', (e) => {
-        // Tab key to cycle through tabs
-        if (e.key === 'Tab') {
-            e.preventDefault();
-            const activeTab = document.querySelector('.tab.active');
-            const allTabs = Array.from(tabs);
-            const currentIndex = allTabs.indexOf(activeTab);
-            const nextIndex = (currentIndex + 1) % allTabs.length;
-            allTabs[nextIndex].click();
+        // Tab key to cycle through sections
+        if (e.key === 'Tab' && !e.shiftKey && !e.ctrlKey && !e.altKey) {
+            // Only if not focused on an input
+            if (document.activeElement.tagName !== 'INPUT' && document.activeElement.tagName !== 'TEXTAREA') {
+                e.preventDefault();
+                const activeTab = document.querySelector('.tab.active');
+                const allTabs = Array.from(tabs);
+                const currentIndex = allTabs.indexOf(activeTab);
+                const nextIndex = (currentIndex + 1) % allTabs.length;
+                allTabs[nextIndex].click();
+            }
         }
 
-        // Arrow keys to navigate tabs
+        // Arrow keys to navigate
         if (e.key === 'ArrowRight' && e.ctrlKey) {
             e.preventDefault();
             const activeTab = document.querySelector('.tab.active');
@@ -107,8 +113,8 @@ document.addEventListener('DOMContentLoaded', () => {
             allTabs[prevIndex].click();
         }
 
-        // Number keys (1-4) to jump to specific tabs
-        if (e.key >= '1' && e.key <= '4' && e.ctrlKey) {
+        // Number keys (1-5) to jump to specific sections
+        if (e.key >= '1' && e.key <= '5' && e.ctrlKey) {
             e.preventDefault();
             const tabIndex = parseInt(e.key) - 1;
             if (tabIndex < tabs.length) {
@@ -325,7 +331,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Back to Top Button Functionality
     const backToTopButton = document.getElementById('backToTop');
-    const terminalContent = document.querySelector('.terminal-content');
 
     if (backToTopButton && terminalContent) {
         // Show/hide button based on scroll position

@@ -31,19 +31,19 @@
                 <button id="themeToggle" class="theme-toggle-header" title="Toggle light/dark mode" aria-label="Toggle between light and dark mode">
                     <span aria-hidden="true">☀️</span>
                 </button>
-                <div class="window-tabs" role="tablist" aria-label="Portfolio sections">
-                    <button class="tab active" data-tab="about" role="tab" aria-selected="true" aria-controls="about">about.md</button>
-                    <button class="tab" data-tab="experience" role="tab" aria-selected="false" aria-controls="experience">work_experience.md</button>
-                    <button class="tab" data-tab="work" role="tab" aria-selected="false" aria-controls="work">blog_posts.md</button>
-                    <button class="tab" data-tab="personal" role="tab" aria-selected="false" aria-controls="personal">personal.txt</button>
-                    <button class="tab" data-tab="contact" role="tab" aria-selected="false" aria-controls="contact">contact.txt</button>
+                <div class="window-tabs" role="navigation" aria-label="Portfolio sections">
+                    <a class="tab active" href="#about" data-section="about">about.md</a>
+                    <a class="tab" href="#experience" data-section="experience">work_experience.md</a>
+                    <a class="tab" href="#work" data-section="work">blog_posts.md</a>
+                    <a class="tab" href="#personal" data-section="personal">personal.txt</a>
+                    <a class="tab" href="#contact" data-section="contact">contact.txt</a>
                 </div>
             </div>
 
             <!-- Terminal Content -->
             <div class="terminal-content">
-                <!-- Welcome Screen -->
-                <div class="tab-content active" id="about" role="tabpanel" aria-labelledby="about-tab">
+                <!-- About Section -->
+                <section class="page-section" id="about">
                     <div class="command-line">
                         <span class="prompt">rhea@portfolio</span>
                         <span class="path">~</span>
@@ -139,21 +139,93 @@
                                 <span class="keyword">blog:</span> <a href="https://devblogs.microsoft.com/visualstudio/author/rhpatel/" target="_blank" class="link">devblogs.microsoft.com/visualstudio</a>
                             </p>
                         </div>
+                    </div>
+                </section>
 
-                        <div class="section nav-links-section">
-                            <span class="comment"># EXPLORE MORE</span>
-                            <div class="bottom-nav">
-                                <button class="bottom-nav-btn" onclick="switchTab('experience')">→ Work Experience</button>
-                                <button class="bottom-nav-btn" onclick="switchTab('work')">→ Blog Posts</button>
-                                <button class="bottom-nav-btn" onclick="switchTab('personal')">→ Personal</button>
-                                <button class="bottom-nav-btn" onclick="switchTab('contact')">→ Contact</button>
+                <!-- Experience Section -->
+                <section class="page-section" id="experience">
+                    <div class="command-line">
+                        <span class="prompt">rhea@portfolio</span>
+                        <span class="path">~</span>
+                        <span class="dollar">$</span>
+                        <span class="command">cat work_experience.md</span>
+                    </div>
+
+                    <div class="output">
+                        <span class="comment"># Work Experience</span>
+                        <div class="experience-item">
+                            <div class="exp-header">
+                                <div>
+                                    <h3 class="exp-title">Senior Product Manager, GitHub Copilot</h3>
+                                    <p class="exp-subtitle">Models, Agent Mode, Chat, and the Agents Platform</p>
+                                    <p class="exp-company">Microsoft · San Francisco, CA</p>
+                                </div>
+                            </div>
+                            <ul class="exp-list">
+                                <li>Scaled Agent Mode from 100s to 300K+ users, launching 0-to-1 multi-agent support with agent-to-agent workflows, shaping Visual Studio's agent-first development strategy, and integrating three new local agents and remote agents into the platform.</li>
+                                <li>Raised SWE Bench scores by 20% by expanding IDE toolsets and language services integration in Agent Mode and driving design of new planning tools to improve response consistency.</li>
+                                <li>Delivered major performance gains in Agent Mode by leveraging log analysis, competitive benchmarking, and customer feedback; cutting token usage by 30%, boosting time to first token speed by 25%.</li>
+                                <li>Redefined Copilot Chat Context from user-invoked to system-augmented and model-driven (tool calling), boosting code acceptance by 30% and laying the foundation for agentic workflows in Visual Studio.</li>
+                                <li>Introduced 10+ new models (Anthropic, OpenAI, Google) in Visual Studio, negotiated capacity, guided valuation, launched Bring Your Own Key, and added auto model selection to seamlessly pick the best model for users.</li>
+                                <li>3× growth Copilot's social and blog impressions, reaching millions of developers; by shifting to transparent, open development and overhauling GTM strategy to accelerate feedback loops and boost user trust.</li>
+                            </ul>
+                        </div>
+
+                        <div class="experience-item">
+                            <div class="exp-header">
+                                <div>
+                                    <h3 class="exp-title">Product Manager II, GitHub Copilot</h3>
+                                    <p class="exp-subtitle">Growth</p>
+                                    <p class="exp-company">Microsoft · New York, NY</p>
+                                </div>
+                            </div>
+                            <ul class="exp-list">
+                                <li>Delivered 1M+ new Copilot users and 150K pre-launch sign-ups by leading the Copilot Free rollout in Visual Studio - owning the Free SKU design and the cross-editor user journey (VS Code, Visual Studio, JetBrains) which led to 8M+ users in the first months.</li>
+                                <li>Served as a lead architect of Copilot's pricing and usage model - defining SKUs, introducing consumptive billing, with consistent token metering, directly contributing to GitHub's ARR growth.</li>
+                                <li>Scaled adoption to 7M by making GitHub Copilot a seamless, default experience lowering adoption barriers.</li>
+                                <li>Led growth through A/B experiments and new UX in IDE and Chat, reducing onboarding drop-off by 5%, increasing sign-ins by 183%, and re-engaging 41% of churned users.</li>
+                                <li>Early member of the GitHub Copilot team, contributing to the launch and GA of Copilot Chat and shaping foundational roadmap.</li>
+                            </ul>
+                        </div>
+
+                        <div class="experience-item">
+                            <div class="exp-header">
+                                <div>
+                                    <h3 class="exp-title">Product Manager, Telemetry & Data Infrastructure Platform</h3>
+                                    <p class="exp-company">Microsoft · Seattle, WA</p>
+                                </div>
+                            </div>
+                            <ul class="exp-list">
+                                <li>Designed and open-sourced a scalable data-mining system that transformed petabytes of telemetry into LLM-consumable datasets for engineering productivity decision-making.</li>
+                            </ul>
+                        </div>
+
+                        <div class="experience-item">
+                            <div class="exp-header">
+                                <div>
+                                    <h3 class="exp-title">Customer Success Manager</h3>
+                                    <p class="exp-company">Microsoft · Melbourne, AUS</p>
+                                </div>
+                            </div>
+                            <ul class="exp-list">
+                                <li>Drove user adoption and retention of Microsoft products across large enterprise organizations.</li>
+                            </ul>
+                        </div>
+
+                        <div class="section">
+                            <span class="comment"># Education</span>
+                            <div class="education-box">
+                                <h4 class="edu-degree">Bachelor's Degree</h4>
+                                <p class="edu-school">Monash University · Melbourne, AUS</p>
+                                <p class="edu-major">Software Development & Business Information Systems</p>
+                                <p class="edu-activities">MAC, Cofounder Software Engineering Society</p>
                             </div>
                         </div>
                     </div>
-                </div>
+                </section>
 
-                <!-- Work Tab -->
-                <div class="tab-content" id="work" role="tabpanel" aria-labelledby="work-tab">
+                <!-- Blog Posts Section -->
+                <section class="page-section" id="work">
                     <div class="command-line">
                         <span class="prompt">rhea@portfolio</span>
                         <span class="path">~</span>
@@ -251,113 +323,11 @@
                                 </div>
                             </div>
                         </div>
-
-                        <div class="section nav-links-section">
-                            <span class="comment"># Explore More</span>
-                            <div class="bottom-nav">
-                                <button class="bottom-nav-btn" onclick="switchTab('about')">→ About</button>
-                                <button class="bottom-nav-btn" onclick="switchTab('experience')">→ Work Experience</button>
-                                <button class="bottom-nav-btn" onclick="switchTab('personal')">→ Personal</button>
-                                <button class="bottom-nav-btn" onclick="switchTab('contact')">→ Contact</button>
-                            </div>
-                        </div>
                     </div>
-                </div>
+                </section>
 
-                <!-- Experience Tab -->
-                <div class="tab-content" id="experience" role="tabpanel" aria-labelledby="experience-tab">
-                    <div class="command-line">
-                        <span class="prompt">rhea@portfolio</span>
-                        <span class="path">~</span>
-                        <span class="dollar">$</span>
-                        <span class="command">cat work_experience.md</span>
-                    </div>
-
-                    <div class="output">
-                        <span class="comment"># Work Experience</span>
-                        <div class="experience-item">
-                            <div class="exp-header">
-                                <div>
-                                    <h3 class="exp-title">Senior Product Manager, GitHub Copilot</h3>
-                                    <p class="exp-subtitle">Models, Agent Mode, Chat, and the Agents Platform</p>
-                                    <p class="exp-company">Microsoft · San Francisco, CA</p>
-                                </div>
-                            </div>
-                            <ul class="exp-list">
-                                <li>Scaled Agent Mode from 100s to 300K+ users, launching 0-to-1 multi-agent support with agent-to-agent workflows, shaping Visual Studio's agent-first development strategy, and integrating three new local agents and remote agents into the platform.</li>
-                                <li>Raised SWE Bench scores by 20% by expanding IDE toolsets and language services integration in Agent Mode and driving design of new planning tools to improve response consistency.</li>
-                                <li>Delivered major performance gains in Agent Mode by leveraging log analysis, competitive benchmarking, and customer feedback; cutting token usage by 30%, boosting time to first token speed by 25%.</li>
-                                <li>Redefined Copilot Chat Context from user-invoked to system-augmented and model-driven (tool calling), boosting code acceptance by 30% and laying the foundation for agentic workflows in Visual Studio.</li>
-                                <li>Introduced 10+ new models (Anthropic, OpenAI, Google) in Visual Studio, negotiated capacity, guided valuation, launched Bring Your Own Key, and added auto model selection to seamlessly pick the best model for users.</li>
-                                <li>3× growth Copilot's social and blog impressions, reaching millions of developers; by shifting to transparent, open development and overhauling GTM strategy to accelerate feedback loops and boost user trust.</li>
-                            </ul>
-                        </div>
-
-                        <div class="experience-item">
-                            <div class="exp-header">
-                                <div>
-                                    <h3 class="exp-title">Product Manager II, GitHub Copilot</h3>
-                                    <p class="exp-subtitle">Growth</p>
-                                    <p class="exp-company">Microsoft · New York, NY</p>
-                                </div>
-                            </div>
-                            <ul class="exp-list">
-                                <li>Delivered 1M+ new Copilot users and 150K pre-launch sign-ups by leading the Copilot Free rollout in Visual Studio - owning the Free SKU design and the cross-editor user journey (VS Code, Visual Studio, JetBrains) which led to 8M+ users in the first months.</li>
-                                <li>Served as a lead architect of Copilot's pricing and usage model - defining SKUs, introducing consumptive billing, with consistent token metering, directly contributing to GitHub's ARR growth.</li>
-                                <li>Scaled adoption to 7M by making GitHub Copilot a seamless, default experience lowering adoption barriers.</li>
-                                <li>Led growth through A/B experiments and new UX in IDE and Chat, reducing onboarding drop-off by 5%, increasing sign-ins by 183%, and re-engaging 41% of churned users.</li>
-                                <li>Early member of the GitHub Copilot team, contributing to the launch and GA of Copilot Chat and shaping foundational roadmap.</li>
-                            </ul>
-                        </div>
-
-                        <div class="experience-item">
-                            <div class="exp-header">
-                                <div>
-                                    <h3 class="exp-title">Product Manager, Telemetry & Data Infrastructure Platform</h3>
-                                    <p class="exp-company">Microsoft · Seattle, WA</p>
-                                </div>
-                            </div>
-                            <ul class="exp-list">
-                                <li>Designed and open-sourced a scalable data-mining system that transformed petabytes of telemetry into LLM-consumable datasets for engineering productivity decision-making.</li>
-                            </ul>
-                        </div>
-
-                        <div class="experience-item">
-                            <div class="exp-header">
-                                <div>
-                                    <h3 class="exp-title">Customer Success Manager</h3>
-                                    <p class="exp-company">Microsoft · Melbourne, AUS</p>
-                                </div>
-                            </div>
-                            <ul class="exp-list">
-                                <li>Drove user adoption and retention of Microsoft products across large enterprise organizations.</li>
-                            </ul>
-                        </div>
-
-                        <div class="section">
-                            <span class="comment"># Education</span>
-                            <div class="education-box">
-                                <h4 class="edu-degree">Bachelor's Degree</h4>
-                                <p class="edu-school">Monash University · Melbourne, AUS</p>
-                                <p class="edu-major">Software Development & Business Information Systems</p>
-                                <p class="edu-activities">MAC, Cofounder Software Engineering Society</p>
-                            </div>
-                        </div>
-
-                        <div class="section nav-links-section">
-                            <span class="comment"># Explore More</span>
-                            <div class="bottom-nav">
-                                <button class="bottom-nav-btn" onclick="switchTab('about')">→ About</button>
-                                <button class="bottom-nav-btn" onclick="switchTab('work')">→ Blog Posts</button>
-                                <button class="bottom-nav-btn" onclick="switchTab('personal')">→ Personal</button>
-                                <button class="bottom-nav-btn" onclick="switchTab('contact')">→ Contact</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Personal Tab -->
-                <div class="tab-content" id="personal" role="tabpanel" aria-labelledby="personal-tab">
+                <!-- Personal Section -->
+                <section class="page-section" id="personal">
                     <div class="command-line">
                         <span class="prompt">rhea@portfolio</span>
                         <span class="path">~</span>
@@ -504,21 +474,11 @@
                                 <p class="personal-description">There's something meditative about working with clay. Creating with my hands balances the digital world.</p>
                             </div>
                         </div>
-
-                        <div class="section nav-links-section">
-                            <span class="comment"># Explore More</span>
-                            <div class="bottom-nav">
-                                <button class="bottom-nav-btn" onclick="switchTab('about')">→ About</button>
-                                <button class="bottom-nav-btn" onclick="switchTab('experience')">→ Work Experience</button>
-                                <button class="bottom-nav-btn" onclick="switchTab('work')">→ Blog Posts</button>
-                                <button class="bottom-nav-btn" onclick="switchTab('contact')">→ Contact</button>
-                            </div>
-                        </div>
                     </div>
-                </div>
+                </section>
 
-                <!-- Contact Tab -->
-                <div class="tab-content" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+                <!-- Contact Section -->
+                <section class="page-section" id="contact">
                     <div class="command-line">
                         <span class="prompt">rhea@portfolio</span>
                         <span class="path">~</span>
@@ -564,18 +524,8 @@
                             <span class="comment"># Let's build something cool together</span>
                             <p class="text">Currently based in <span class="highlight">San Francisco, CA</span></p>
                         </div>
-
-                        <div class="section nav-links-section">
-                            <span class="comment"># Explore More</span>
-                            <div class="bottom-nav">
-                                <button class="bottom-nav-btn" onclick="switchTab('about')">→ About</button>
-                                <button class="bottom-nav-btn" onclick="switchTab('experience')">→ Work Experience</button>
-                                <button class="bottom-nav-btn" onclick="switchTab('work')">→ Blog Posts</button>
-                                <button class="bottom-nav-btn" onclick="switchTab('personal')">→ Personal</button>
-                            </div>
-                        </div>
                     </div>
-                </div>
+                </section>
 
                 <!-- Command Prompt Input -->
                 <div class="command-input-line">

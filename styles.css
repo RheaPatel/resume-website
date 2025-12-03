@@ -159,6 +159,9 @@ body {
     align-items: center;
     gap: 1rem;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
 }
 
 .window-controls {
@@ -239,8 +242,9 @@ body {
 .terminal-content {
     padding: 2rem 3rem;
     min-height: 60vh;
-    max-height: 80vh;
+    max-height: 85vh;
     overflow-y: auto;
+    scroll-behavior: smooth;
 }
 
 .terminal-content::-webkit-scrollbar {
@@ -260,14 +264,33 @@ body {
     background: rgba(255, 255, 255, 0.3);
 }
 
-/* Tab Content */
-.tab-content {
-    display: none;
+/* Page Sections (single-page layout) */
+.page-section {
+    display: block;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    margin-top: 3rem;
 }
 
-.tab-content.active {
-    display: block;
-    animation: fadeIn 0.5s ease;
+.page-section:first-child {
+    padding-top: 0;
+    border-top: none;
+    margin-top: 0;
+}
+
+/* Anchor offset for sticky header */
+.page-section {
+    scroll-margin-top: 0.5rem;
+}
+
+/* Light mode section divider */
+body.light-mode .page-section {
+    border-top-color: rgba(0, 0, 0, 0.1);
+}
+
+/* Tab styles for anchor links */
+.tab {
+    text-decoration: none;
 }
 
 @keyframes fadeIn {
